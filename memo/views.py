@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Memo
 
-# Create your views here.
+class MemoListView(ListView):
+    model = Memo
+    temlate_name = 'memo/memo_list.html'
