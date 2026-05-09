@@ -1,0 +1,9 @@
+<h1>新しいメモを書く</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button  type = "submit">投稿する</button>
+</form>
+
+<a href="{% url 'index' }">戻る</a>

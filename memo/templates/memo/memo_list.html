@@ -1,0 +1,9 @@
+<h1>私のメモ一覧</h1>
+{% for memo in object_list %}
+    <div>
+        <h2>{{ memo.title }}</h2>
+        <p>{{ memo.content }}</p>
+        <small>{{ memo.created_at }}</small>
+    </div>
+    <hr>
+{% endfor %}
