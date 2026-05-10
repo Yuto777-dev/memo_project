@@ -1,9 +1,19 @@
-<h1>私のメモ一覧</h1>
-{% for memo in object_list %}
-    <div>
-        <h2>{{ memo.title }}</h2>
-        <p>{{ memo.content }}</p>
-        <small>{{ memo.created_at }}</small>
+{% extends 'memo/base.html' %} {% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3">私のメモ一覧</h1>
+    <a href="{% url 'create' %}" class="btn btn-primary shadow-sm">＋ 新規作成</a>
+</div>
+
+<div class="row"> {% for memo in object_list %}
+    <div class="col-md-4 mb-4"> <div class="card h-100 shadow-sm"> <div class="card-body">
+                <h5 class="card-title fw-bold">{{ memo.title }}</h5>
+                <p class="card-text text-secondary">
+                    {{ memo.content | truncatechars:50 }} </p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 text-muted small text-end">
+                {{ memo.created_at | date:"Y/m/d H:i" }} </div>
+        </div>
     </div>
-    <hr>
-{% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}
