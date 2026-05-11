@@ -1,0 +1,23 @@
+{% extends 'memo/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-white">
+                <h2 class="h5 mb-0">メモを削除</h2>
+            </div>
+            <div class="card-body">
+                <p>「{{ object.title }}」を本当に削除しますか？</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger">削除する</button>
+                        <a href="{% url 'index' %}" class="btn btn-outline-secondary">戻る</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
