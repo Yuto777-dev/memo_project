@@ -9,6 +9,7 @@
                 <h5 class="card-title fw-bold">{{ memo.title }}</h5>
                 <p class="card-text text-secondary">
                     {{ memo.content | truncatechars:50 }} </p>
+                    <a href="{% url 'memo-edit' memo.pk%}" class="btn btn-sm btn-outline-primary">編集</a>
             </div>
             <div class="card-footer bg-transparent border-top-0 text-muted small text-end">
                 {{ memo.created_at | date:"Y/m/d H:i" }} </div>
